@@ -82,6 +82,8 @@ function ajaxPageLoad(urlPath, pageTitle, pace, params){
                 loadErrorPage2(pace.e403, urlPath, pace);
         },
         complete: function(jqXHR, textStatus){
+            if(jqXHR.status === 202)
+                ajaxPageLoad(jqXHR.getResponseHeader('URL'), pageTitle, pace, params);
             pace.complete();
         }
     });
