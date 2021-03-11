@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, Xyneex Technologies. All rights reserved.
+ * Copyright (c) 2021, Xyneex Technologies. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * You are not meant to edit or modify this source code unless you are
@@ -12,7 +12,11 @@
 $.fn.extend({
     initPacePage: function(pace){
         var pathname = window.location.pathname;
-        var url = pathname.split('/')[2];
+        var location = window.location.href;
+        console.log('pathname: ', pathname);
+        console.log('location: ', location);
+        //var url = pathname.split('/')[2];
+        var url = location;
         ajaxPageLoad(url, pace.defaultTitle, pace);
         $('body').on('click', 'a.ajax-link', function(e){
             e.preventDefault();
